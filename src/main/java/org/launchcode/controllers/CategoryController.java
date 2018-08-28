@@ -16,7 +16,7 @@ import javax.validation.Valid;
 
 
 @Controller
-@RequestMapping("category")
+@RequestMapping(value="category")
 
 public class CategoryController {
 
@@ -26,10 +26,10 @@ public class CategoryController {
     @RequestMapping(value = "")
     public String index(Model model) {
 
-        model.addAttribute("category", categoryDao.findAll());
+        model.addAttribute("categories", categoryDao.findAll());
         model.addAttribute("title", "Categories");
 
-        return "/index";
+        return "category/index";
     }
 
     @RequestMapping(value = "add", method = RequestMethod.GET)
@@ -45,10 +45,10 @@ public class CategoryController {
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add Category");
-            return "/category/add";
+            return "category/add";
         }
         categoryDao.save(newCategory);
-        return "redirect";
+        return "redirect:/category";
 
     }
 }

@@ -30,9 +30,9 @@ public class MenuController {
     @Autowired
     CategoryDao categoryDao;
 
-    @RequestMapping(value = "")
+    @RequestMapping(value = "", method = RequestMethod.GET)
     public String index(Model model) {
-        model.addAttribute("title", "Menus");
+        model.addAttribute("title", "Menu");
         model.addAttribute("menus", menuDao.findAll());
         return "menu/index";
     }
@@ -68,9 +68,7 @@ public class MenuController {
 
         Menu menu = menuDao.findOne(menuId);
 
-        AddMenuItemForm form = new AddMenuItemForm(
-            cheeseDao.findAll(),
-            menu);
+        AddMenuItemForm form = new AddMenuItemForm(cheeseDao.findAll(),menu);
 
         model.addAttribute("title", "Add item to menu: " + menu.getName());
         model.addAttribute("form", form);

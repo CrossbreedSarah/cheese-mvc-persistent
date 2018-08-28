@@ -31,17 +31,21 @@ public class Category {
     }
 
     public int getId() {
-        return this.id;
+        return id;
     }
 
     public String getName() {
-        return this.name;
+        return name;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
+    public List<Cheese> getCheeses(){return cheeses;}
+
+
     }
+
 
 

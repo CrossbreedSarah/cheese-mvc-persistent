@@ -32,9 +32,19 @@ public class Cheese {
     public Cheese(String name, String description){
         this.name = name;
         this.description= description;
+
+
     }
 
+    public Category getCategory(){return category;}
+
     public Cheese() { }
+
+    public String getDescription() {return description;}
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public int getId() {
         return id;
@@ -48,7 +58,5 @@ public class Cheese {
         this.name = name;
     }
 
-    public void setCategory(Category cat) {
-
-    }
+    public void setCategory(Category category) { this.category = category;}
 }
