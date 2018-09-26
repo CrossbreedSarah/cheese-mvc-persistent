@@ -8,11 +8,10 @@
 
 
 <div>
-    <ul th:each="category : ${categories}">
+    <ul th:each="category : *{categories}">
         <li><p th:text="${category.name}"></p></li>
     </ul>
 </div>
     <a href="/category/add">Add Category</a>
-
 </body>
 </html>

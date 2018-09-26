@@ -30,9 +30,9 @@ public class MenuController {
     @Autowired
     CategoryDao categoryDao;
 
-    @RequestMapping(value = "", method = RequestMethod.GET)
+    @RequestMapping(value = "")
     public String index(Model model) {
-        model.addAttribute("title", "Menu");
+        model.addAttribute("title", "Menus");
         model.addAttribute("menus", menuDao.findAll());
         return "menu/index";
     }

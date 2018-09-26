@@ -8,8 +8,8 @@
         <form method="post" style="max-width:600px;" th:object="${form}" action="/menu/add-item">
 
             <div class="form-group">
-                <label th:for="cheeseId">Cheese</label>
-                <select name="cheeseId">
+                <label th:for="cheeseIds">Cheese</label>
+                <select name="cheeseIds">
                     <option th:each="cheese : *{cheeses}"
                             th:text="${cheese.name}"
                             th:value="${cheese.id}"></option>

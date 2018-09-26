@@ -46,8 +46,7 @@ public class CheeseController {
 
     @RequestMapping(value = "add", method = RequestMethod.POST)
     public String processAddCheeseForm(@ModelAttribute  @Valid Cheese newCheese,
-                                       Errors errors, @RequestParam int
-                                                   categoryId, Model model) {
+                                       Errors errors, @RequestParam int categoryId, Model model) {
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add Cheese");
@@ -77,13 +76,12 @@ public class CheeseController {
         return "redirect:";
     }
 
-    @RequestMapping(value = "category/{id}", method=RequestMethod.GET)
-    public String Category (Model model, @PathVariable int id){
+    @RequestMapping(value = "category", method=RequestMethod.GET)
+    public String Category (Model model, @RequestParam int id){
         Category cat = categoryDao.findOne(id);
         List<Cheese> cheeses = cat.getCheeses();
         model.addAttribute("cheeses", cheeses);
-        model.addAttribute("title", "Cheeses in Category" +
-                cat.getName());
+        model.addAttribute("title", "Cheeses in Category: " + cat.getName());
         return "cheese/index";
     }
 
